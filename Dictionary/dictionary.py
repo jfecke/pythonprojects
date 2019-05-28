@@ -7,6 +7,10 @@ keys = data.keys()
 def translate(word):
 	if word in data:
 		return data[word]
+	elif word.title() in data:
+		return data[word.title()]
+	elif word.upper() in data:
+		return data[word.upper()]
 	elif len(get_close_matches(word, keys)) > 0:
 		best = get_close_matches(word, keys)[0]
 		repsonse = input("Did you mean %s instead? Enter Y if yes, N if no." % best)
